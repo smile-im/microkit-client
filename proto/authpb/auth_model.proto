@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package authpb;
+option go_package = "authpb";
+
+// 用户信息
+message UserInfo {
+    int64 user_id       = 1; // 用户id
+    string username     = 2; // 用户名，登录名
+    string nickname     = 3; // 昵称
+    string head_sculpture = 4; // 用户头像
+    string desc         = 5; // 备注
+    int64 register_at   = 6; // 注册时间
+    int64 created_at    = 7; // 创建时间
+    int64 updated_at    = 8; // 更新时间
+}

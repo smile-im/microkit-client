@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package accesspb;
+option go_package = "accesspb";
+
+// Access 服务定义
+service Access {
+    // Connect 连接实时消息
+    rpc Connect (stream ConnectRequest) returns (stream ConnectReply) {}
+}
+
+/* 连接实时消息 */
+message ConnectRequest {
+    Message msg = 1; // 发送消息内容
+}
+
+message ConnectReply {
+    Message msg = 1; // 响应消息内容
+}
+/* end 连接实时消息 */
+
+/* 消息体 */
+enum OperationType {
+    OperationDefault = 0;
+    OperationClientHeartbeat = 2; // 客户端请求心跳
+    OperationServerHeartbeat = 3; // 服务端心跳答复
+    OperationAuth = 7; // auth认证
+    OperationAuthResp = 8; // auth认证返回
+    
+    OperationSendMsg = 21; // 单聊消息发送
+    OperationRecvMsg = 22; // 单聊消息接收
+    OperationSendRoomMsg = 23; // 群聊消息发送
+    OperationRecvRoomMsg = 24; // 群聊消息接收
+}
+
+message Message {
+    int32 ver = 1; // 协议版本
+    OperationType operation = 2; // 指令
+    int64 seq = 3; // 消息序列号
+    int64 from = 4; // 发送人id
+    int64 to = 5; // 接收人或房间id
+    bytes body = 6; // 消息内容
+}
+/* end 消息体 */

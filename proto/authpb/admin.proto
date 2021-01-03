@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package authpb;
+option go_package = "authpb";
+
+// AdminAuth 服务定义
+service AdminAuth {
+}

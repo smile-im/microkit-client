@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "auth_model.proto";
+
+package authpb;
+option go_package = "authpb";
+
+// Auth 服务定义
+service Auth {
+    // Login 登录
+    rpc Login (LoginRequest) returns (LoginReply) {}
+}
+
+
+/* 登录 */
+message LoginRequest {
+    string username = 1; // 用户名
+    string password = 2; // 密码
+}
+
+message LoginReply {
+    UserInfo user_info = 1; // 用户信息
+    string token = 2; // 登录token
+}
+/* end 登录 */
