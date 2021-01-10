@@ -3,6 +3,8 @@ syntax = "proto3";
 package accesspb;
 option go_package = "accesspb";
 
+import "accesspb_model.proto";
+
 // AdminAccess 服务定义
 service AdminAccess {
     // CreateRoom 创建房间

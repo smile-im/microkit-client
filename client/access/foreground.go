@@ -1,8 +1,8 @@
 package access
 
 import (
-	accesspb "github.com/smile-im/microkit-client/proto/accesspb"
 	"github.com/micro-kit/microkit/client"
+	accesspb "github.com/smile-im/microkit-client/proto/accesspb"
 	"google.golang.org/grpc"
 )
 

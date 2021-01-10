@@ -1,8 +1,8 @@
 package access
 
 import (
-	accesspb "github.com/smile-im/microkit-client/proto/accesspb"
 	"github.com/micro-kit/microkit/client"
+	accesspb "github.com/smile-im/microkit-client/proto/accesspb"
 	"google.golang.org/grpc"
 )
 
@@ -18,7 +18,7 @@ func NewAdminClient() (accessAdminClient accesspb.AdminAccessClient, err error) 
 	}
 	// 连接服务端
 	err = c.Dial(func(cc *grpc.ClientConn) {
-		accessAdminClient = accesspb.NewAccessClient(cc)
+		accessAdminClient = accesspb.NewAdminAccessClient(cc)
 	})
 	return
 }
